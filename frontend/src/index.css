@@ -1,0 +1,740 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados */
+
+body {
+  font-family: 'Press Start 2P', cursive;
+}
+
+
+.bg-rick-morty {
+  background-image: url('./assets/rick-and-morty-green-portal-3d-background-scaled.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Variables CSS para modos claro y oscuro */
+:root {
+  /* Colores comunes para ambos temas */
+  --primary-green: #22c55e;  /* El verde brillante de los botones */
+  --secondary-cyan: #22d3ee; /* El cyan usado para títulos */
+  --accent-color: #10b981;   /* Color para hover */
+  --highlight-color: #a3e635; /* Verde lima para acentos */
+  
+  /* Color de fondo del portal Rick and Morty */
+  --portal-bg: url('./assets/rick-and-morty-green-portal-3d-background-scaled.jpg');
+}
+
+/* Tema oscuro (por defecto) */
+.dark {
+  --bg-primary: #000000;
+  --bg-secondary: #111111;
+  --bg-menu: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --border-color: #333333;
+  --hover-bg: rgba(34, 197, 94, 0.1); /* Verde con transparencia */
+  --menu-hover: var(--accent-color);
+  --card-bg: #000000;
+  --dropdown-bg: #000000;
+  --dropdown-hover: #111111;
+  --dropdown-border: #333333;
+}
+
+/* Tema claro */
+:root:not(.dark) {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-menu: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #333333;
+  --border-color: #e5e7eb;
+  --hover-bg: rgba(34, 197, 94, 0.1); /* Verde con transparencia */
+  --menu-hover: var(--accent-color);
+  --card-bg: #ffffff;
+  --dropdown-bg: #ffffff;
+  --dropdown-hover: #f3f4f6;
+  --dropdown-border: #e5e7eb;
+}
+
+/* Estilos para componentes principales */
+
+/* Fondo de la aplicación */
+.bg-rick-morty {
+  background-image: var(--portal-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Override para fondos negros/blancos */
+.bg-black {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Tarjetas y contenedores */
+.rounded-lg.shadow-md, 
+.rounded-lg.shadow-lg {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+/* Textos */
+h1, h2, h3, h4, h5, h6, p, span, div, label {
+  color: var(--text-primary);
+}
+
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-300,
+.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Conservar colores específicos */
+.text-cyan-400 {
+  color: var(--secondary-cyan) !important;
+}
+
+.text-green-400,
+.text-green-600 {
+  color: var(--primary-green) !important;
+}
+
+/* Botones - mantener colores originales */
+.bg-green-600 {
+  background-color: var(--primary-green) !important;
+}
+
+/* Menú desplegable */
+.dropdown-menu {
+  background-color: var(--dropdown-bg) !important;
+  border: 1px solid var(--dropdown-border) !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--dropdown-hover) !important;
+}
+
+/* Estilos específicos para el menú de perfil */
+.md\:flex.items-center.space-x-4 .relative .absolute {
+  background-color: var(--dropdown-bg) !important;
+  border: 1px solid var(--dropdown-border) !important;
+}
+
+/* Estilo para hover del selector de perfil */
+.md\:flex.items-center.space-x-4 .relative button:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Estilo específico para el menú desplegable de perfil */
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 {
+  background-color: var(--dropdown-bg) !important;
+  border: 1px solid var(--dropdown-border) !important;
+}
+
+/* Hover en el menú desplegable de perfil */
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 button:hover,
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 a:hover {
+  background-color: var(--hover-bg) !important;
+  color: var(--menu-hover) !important;
+}
+
+/* Mantener el color rojo para el botón de cerrar sesión */
+.text-red-400 {
+  color: #f87171 !important;
+}
+
+/* Inputs y campos de formulario */
+input, select, textarea {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+input::placeholder, 
+select::placeholder, 
+textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* Estilos para la navbar principal */
+header.bg-black {
+  background-color: var(--bg-primary) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Estilos específicos para el menú de perfil */
+.md\:flex.items-center.space-x-4 .relative button {
+  color: var(--text-primary);
+  background-color: transparent;
+  transition: background-color 0.2s;
+}
+
+.md\:flex.items-center.space-x-4 .relative button:hover {
+  background-color: var(--accent-color) !important;
+  color: #000000 !important;
+}
+
+/* Menú desplegable de perfil */
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 {
+  background-color: var(--dropdown-bg) !important;
+  border: 1px solid var(--dropdown-border) !important;
+}
+
+/* Elementos del menú desplegable */
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 .py-1 .px-4.py-2 {
+  color: var(--text-primary) !important;
+}
+
+/* Separadores del menú desplegable */
+.absolute.right-0.mt-2.w-48.bg-gray-900.rounded-md.shadow-lg.z-10 .border-t.border-gray-700 {
+  border-color: var(--dropdown-border) !important;
+}
+
+/* Estilo para el hover en el menú desplegable */
+.w-full.text-left.block.px-4.py-2.text-sm.text-gray-300.hover\:bg-gray-800:hover {
+  background-color: var(--accent-color) !important;
+  color: #000000 !important;
+}
+
+/* Mantener el texto rojo para el botón de cerrar sesión */
+.w-full.text-left.block.px-4.py-2.text-sm.text-red-400.hover\:bg-gray-800:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Estilo para el perfil seleccionado */
+.w-full.text-left.block.px-4.py-2.text-sm.bg-green-800.text-white {
+  background-color: var(--primary-green) !important;
+  color: #000000 !important;
+}
+
+/* Estilos para modo móvil */
+.md\:hidden .flex.flex-col.space-y-4.pb-3 a:hover,
+.md\:hidden .flex.flex-col.space-y-4.pb-3 button:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Ajustes para los botones principales */
+.bg-green-600.text-white,
+.bg-green-500.text-black,
+.bg-green-600.text-black {
+  transition: all 0.3s ease;
+}
+
+.bg-green-600.text-white:hover,
+.bg-green-500.text-black:hover,
+.bg-green-600.text-black:hover {
+  filter: brightness(110%);
+  transform: translateY(-1px);
+}
+
+/* Tarjeta de personaje */
+.bg-black.rounded-lg.shadow-md.overflow-hidden {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto hover de la tarjeta */
+.bg-black.rounded-lg.shadow-md.overflow-hidden:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Contenido de la tarjeta */
+.bg-black.rounded-lg.shadow-md.overflow-hidden .p-4 h3 {
+  color: var(--secondary-cyan) !important;
+}
+
+.bg-black.rounded-lg.shadow-md.overflow-hidden .p-4 span.text-white {
+  color: var(--text-primary) !important;
+}
+
+/* Fondo para detalles dentro de la tarjeta */
+.mt-2.text-sm.text-white.space-y-1.bg-black.border.border-green-400.p-2.rounded {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--primary-green) !important;
+}
+
+/* Botones dentro de las tarjetas */
+.bg-black.rounded-lg.shadow-md.overflow-hidden .mt-4.flex.justify-between button,
+.bg-black.rounded-lg.shadow-md.overflow-hidden .mt-4.flex.justify-between a {
+  transition: all 0.2s;
+}
+
+/* Botón de editar */
+.px-3.py-1.bg-blue-500.text-white.rounded-md.text-sm.hover\:bg-blue-600:hover {
+  filter: brightness(110%);
+}
+
+/* Botón de eliminar */
+.px-3.py-1.bg-red-500.text-white.rounded-md.text-sm.hover\:bg-red-600:hover {
+  filter: brightness(110%);
+}
+
+/* Botón de favoritos */
+.px-4.py-2.rounded-md.text-sm.font-medium.transition-colors {
+  transition: all 0.3s ease;
+}
+
+/* Indicadores de estado (vivo, muerto, etc.) */
+.inline-block.w-3.h-3.rounded-full.mr-2.bg-green-500,
+.inline-block.w-3.h-3.rounded-full.mr-2.bg-red-500,
+.inline-block.w-3.h-3.rounded-full.mr-2.bg-gray-500 {
+  /* Mantener los colores originales para los indicadores de estado */
+}
+
+/* Tarjeta vacía cuando no hay personajes */
+.text-center.py-12.bg-black.rounded-lg {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+/* Texto en tarjeta vacía */
+.text-center.py-12.bg-black.rounded-lg h2 {
+  color: var(--secondary-cyan) !important;
+}
+
+.text-center.py-12.bg-black.rounded-lg p {
+  color: var(--text-primary) !important;
+}
+
+/* Restricción de edad */
+.bg-red-900\/30.text-red-400.text-xs.px-2.py-1.rounded-sm.mb-3.inline-block {
+  /* Mantener este estilo original */
+}
+
+/* Contenedor de formulario */
+form.bg-black.p-6.rounded-lg.shadow-lg {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color);
+}
+
+/* Etiquetas de formulario */
+form label.block.text-white.font-medium.mb-2 {
+  color: var(--text-primary) !important;
+}
+
+/* Campos de entrada */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form select,
+form textarea {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+  border-color: var(--primary-green) !important;
+  ring-color: var(--primary-green) !important;
+}
+
+/* Texto de ayuda y error */
+form .text-sm.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+form .text-red-500,
+form .border-red-500 {
+  /* Mantener colores de error */
+}
+
+/* Contenedor de vista previa de imagen */
+form .mt-2 {
+  background-color: var(--bg-secondary) !important;
+}
+
+/* Botones de formulario */
+form button[type="submit"] {
+  background-color: var(--primary-green) !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  filter: brightness(110%);
+}
+
+form button[type="button"] {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Sección de errores */
+form .mb-6.p-4.bg-red-100.border-l-4.border-red-500.text-red-700 {
+  /* Mantener estilos originales para mensajes de error */
+}
+
+/* Vista previa de imagen */
+form img.h-32.w-32.object-cover.rounded-md {
+  border: 1px solid var(--border-color);
+}
+
+/* Selector de avatar */
+.grid.grid-cols-2.sm\:grid-cols-5.gap-4 div {
+  background-color: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s;
+}
+
+.grid.grid-cols-2.sm\:grid-cols-5.gap-4 div:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+.grid.grid-cols-2.sm\:grid-cols-5.gap-4 div.ring-2.ring-green-500.bg-green-900\/30 {
+  background-color: rgba(34, 197, 94, 0.2) !important;
+  border-color: var(--primary-green) !important;
+}
+
+/* Botón de tema claro/oscuro */
+button.p-2.rounded-full.hover\:bg-gray-700 {
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover del botón de tema claro/oscuro - mismo verde que el resto del navbar */
+button.p-2.rounded-full.hover\:bg-gray-700:hover {
+  background-color: var(--accent-color) !important;
+  color: #000000 !important;
+}
+
+/* Para la versión móvil también */
+.flex.items-center.space-x-2.text-gray-300.hover\:text-green-300.transition.py-1:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Si necesitas apuntar de forma más específica al botón, también puedes usar: */
+.md\:flex.items-center.space-x-4 button[onClick*="toggleTheme"] {
+  transition: all 0.3s ease;
+}
+
+.md\:flex.items-center.space-x-4 button[onClick*="toggleTheme"]:hover {
+  background-color: var(--accent-color) !important;
+  color: #000000 !important;
+}
+
+/* Fondo principal para páginas de autenticación */
+.min-h-screen.flex.flex-col.justify-center.items-center.bg-black\/90 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Contenedor del formulario */
+.max-w-md.w-full.space-y-8.bg-black.p-10.rounded-lg.shadow-2xl.border.border-green-400 {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid var(--primary-green) !important;
+}
+
+/* Título de la página */
+.mt-6.text-center.text-3xl.font-extrabold.text-cyan-400 {
+  color: var(--secondary-cyan) !important;
+}
+
+/* Campos de entrada */
+.appearance-none.rounded-t-md.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md,
+.appearance-none.rounded-b-md.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md,
+.appearance-none.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  margin-bottom: 16px; /* Añadir espacio entre inputs */
+}
+
+/* Placeholders */
+.appearance-none.rounded-t-md.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md::placeholder,
+.appearance-none.rounded-b-md.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md::placeholder,
+.appearance-none.relative.block.w-full.px-3.py-3.border.border-gray-300.placeholder-gray-500.text-white.bg-black.rounded-md::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+/* Botón de inicio de sesión/registro */
+.group.relative.w-full.flex.justify-center.py-3.px-4.border.border-transparent.text-sm.font-medium.rounded-md.text-black.bg-green-500.hover\:bg-green-600 {
+  background-color: var(--primary-green) !important;
+  transition: all 0.3s ease;
+}
+
+.group.relative.w-full.flex.justify-center.py-3.px-4.border.border-transparent.text-sm.font-medium.rounded-md.text-black.bg-green-500.hover\:bg-green-600:hover {
+  filter: brightness(110%);
+  transform: translateY(-1px);
+}
+
+/* Enlaces "Regístrate aquí" / "Inicia sesión" */
+.font-medium.text-green-400.hover\:text-green-300 {
+  color: var(--primary-green) !important;
+}
+
+.font-medium.text-green-400.hover\:text-green-300:hover {
+  color: var(--highlight-color) !important;
+}
+
+/* Fondo principal para página de selección de perfiles */
+.min-h-screen.flex.flex-col.items-center.bg-black\/90 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Título "¿Quién está viendo?" */
+.text-3xl.font-bold.text-cyan-400 {
+  color: var(--secondary-cyan) !important;
+}
+
+/* Contenedores de perfiles */
+.flex.flex-col.items-center.cursor-pointer.transition-transform.duration-200.hover\:scale-110 {
+  transition: transform 0.3s ease;
+}
+
+/* Bordes de imágenes de perfiles */
+.w-28.h-28.rounded-md.overflow-hidden.border-4.border-green-400,
+.w-28.h-28.rounded-md.overflow-hidden.border-4.border-blue-400 {
+  border-width: 4px;
+}
+
+.w-28.h-28.rounded-md.overflow-hidden.border-4.border-green-400 {
+  border-color: var(--primary-green) !important;
+}
+
+.w-28.h-28.rounded-md.overflow-hidden.border-4.border-blue-400 {
+  border-color: #3b82f6 !important; /* Mantener azul para perfiles infantiles */
+}
+
+/* Botón "Añadir perfil" */
+.w-28.h-28.rounded-md.bg-gray-800.border-4.border-dashed.border-gray-600 {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Nombres de perfiles */
+.text-lg.text-white.font-medium,
+.text-lg.text-white.font-medium.text-center {
+  color: var(--text-primary) !important;
+}
+
+/* Texto descriptivo del tipo de perfil */
+.text-xs.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Botones de administrar perfiles y cerrar sesión */
+.px-6.py-2.border.border-gray-600.text-gray-300.rounded-md.hover\:bg-gray-800,
+.px-6.py-2.border.border-red-600.text-red-400.rounded-md.hover\:bg-red-900\/30 {
+  background-color: var(--bg-primary) !important;
+  transition: all 0.3s ease;
+}
+
+.px-6.py-2.border.border-gray-600.text-gray-300.rounded-md.hover\:bg-gray-800 {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.px-6.py-2.border.border-gray-600.text-gray-300.rounded-md.hover\:bg-gray-800:hover {
+  background-color: var(--hover-bg) !important;
+}
+
+/* Botón de cerrar sesión - mantener en rojo */
+.px-6.py-2.border.border-red-600.text-red-400.rounded-md.hover\:bg-red-900\/30 {
+  border-color: #ef4444 !important;
+  color: #f87171 !important;
+}
+
+.px-6.py-2.border.border-red-600.text-red-400.rounded-md.hover\:bg-red-900\/30:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Página de administración de perfiles */
+/* Título "Administrar perfiles" */
+.text-3xl.font-bold.text-cyan-400.mb-6,
+.max-w-4xl.mx-auto h1 {
+  color: var(--secondary-cyan) !important;
+}
+
+/* Paneles de perfil en administración */
+.bg-gray-800.rounded-lg.p-4.flex.items-center.justify-between {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid var(--primary-green) !important;
+  border-radius: 0.5rem;
+}
+
+/* Botón Volver */
+button.px-4.py-2.bg-gray-700.text-white.rounded-md.hover\:bg-gray-600 {
+  background-color: var(--primary-green) !important;
+  color: #000000 !important;
+  transition: all 0.3s ease;
+}
+
+button.px-4.py-2.bg-gray-700.text-white.rounded-md.hover\:bg-gray-600:hover {
+  filter: brightness(110%);
+}
+
+/* Botones de Editar y Eliminar */
+.px-3.py-1.bg-blue-600.text-white.rounded-md.hover\:bg-blue-700,
+.px-3.py-1.bg-red-600.text-white.rounded-md.hover\:bg-red-700 {
+  transition: all 0.3s ease;
+}
+
+.px-3.py-1.bg-blue-600.text-white.rounded-md.hover\:bg-blue-700:hover,
+.px-3.py-1.bg-red-600.text-white.rounded-md.hover\:bg-red-700:hover {
+  filter: brightness(110%);
+}
+
+/* Botón de crear nuevo perfil */
+.px-6.py-3.bg-green-600.text-white.rounded-md.hover\:bg-green-700.inline-block {
+  background-color: var(--primary-green) !important;
+  transition: all 0.3s ease;
+}
+
+.px-6.py-3.bg-green-600.text-white.rounded-md.hover\:bg-green-700.inline-block:hover {
+  filter: brightness(110%);
+  transform: translateY(-1px);
+}
+
+/* Texto informativo */
+.text-gray-400.mt-2.text-sm {
+  color: var(--text-secondary) !important;
+}
+
+/* Solo aplicar fondo a páginas específicas, NO a la página principal */
+body:has([href*="/profiles/manage"]),
+body:has([href*="/login"]),
+body:has([href*="/register"]),
+body:has([href*="/profiles"]):not(:has([href="/"])) {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Mantener la clase bg-rick-morty intacta */
+.bg-rick-morty {
+  background-image: var(--portal-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Asegurarnos de que los elementos dentro de la página principal tengan el fondo correcto */
+.bg-black.rounded-lg,
+.bg-black.p-6.rounded-lg.shadow-md,
+.bg-black.p-6.rounded-lg.shadow-lg {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Asegurar que la superposición sobre el fondo sea correcta */
+.min-h-screen.bg-gray-900\/70 {
+  background-color: rgba(17, 24, 39, 0.7) !important;
+}
+
+/* En modo claro, ajustar la superposición para mejor legibilidad */
+:root:not(.dark) .min-h-screen.bg-gray-900\/70 {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Contenedores principales específicos para ciertas páginas */
+.min-h-screen.flex.flex-col.justify-center.items-center.bg-black\/90,
+.min-h-screen.flex.flex-col.items-center.bg-black\/90 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Los componentes dentro de la página principal aún deben tener fondos apropiados */
+.bg-black.rounded-lg.shadow-md.overflow-hidden,
+.bg-black.rounded-lg.p-4.flex.items-center.justify-between,
+.bg-gray-800.rounded-lg.p-4.flex.items-center.justify-between {
+  background-color: var(--bg-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Mantener los fondos negros para los paneles en la página principal */
+.bg-rick-morty .bg-black {
+  background-color: #000000 !important;
+}
+
+/* En modo claro, hacer que los paneles en la página principal sean más legibles */
+:root:not(.dark) .bg-rick-morty .bg-black {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Footer en modo oscuro (mantener el actual) */
+footer.bg-black\/90,
+footer.bg-black {
+  background-color: var(--bg-primary) !important;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Texto del footer en modo oscuro */
+footer.bg-black\/90 .text-center.text-sm.text-gray-400,
+footer.bg-black .text-center.text-sm.text-gray-400,
+footer .text-center.text-sm.text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Enlaces en el footer */
+footer a.underline.hover\:text-white {
+  color: var(--primary-green) !important;
+  transition: color 0.2s;
+}
+
+footer a.underline.hover\:text-white:hover {
+  color: var(--highlight-color) !important;
+}
+
+/* Copyright y otros textos en el footer */
+footer p, 
+footer span,
+footer div {
+  color: var(--text-secondary) !important;
+}
+
+/* Asegurar que la referencia a la API se mantiene visible */
+footer a[href*="API"] {
+  color: var(--primary-green) !important;
+}
+
+footer a[href*="API"]:hover {
+  color: var(--highlight-color) !important;
+}
+
+/* Ajustar el año del copyright para que sea visible en ambos modos */
+footer span:has(text="2025"),
+footer span:contains("2025") {
+  color: var(--text-primary) !important;
+}
+
+/* Mejorar la visibilidad del signo de exclamación en modales de confirmación */
+.swal2-icon.swal2-warning {
+  color: #f8bb86 !important;
+  border-color: #f8bb86 !important;
+}
+
+/* Asegurar que el signo de exclamación sea visible en modo oscuro */
+.swal2-icon.swal2-warning .swal2-icon-content {
+  color: #000 !important;
+  font-weight: bold !important;
+  text-shadow: 0 0 1px #fff, 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Ajustar contraste para el texto del modal en modo oscuro */
+.swal2-title, .swal2-html-container {
+  color: #333 !important;
+}
+
+/* Asegurar que los botones del modal tengan el texto visible */
+.swal2-confirm, .swal2-cancel {
+  color: #fff !important;
+}
+
+/* Si el problema sigue presente, podríamos necesitar esta solución más específica */
+.swal2-icon-content {
+  background-color: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
